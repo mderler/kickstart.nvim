@@ -102,10 +102,14 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Resize window
-vim.keymap.set('n', '<M-h>', ':vertical resize +10<CR>', { desc = 'Extend window horizontally', noremap = true, silent = true })
-vim.keymap.set('n', '<M-l>', ':vertical resize -10<CR>', { desc = 'Shrink window horizontally', noremap = true, silent = true })
-vim.keymap.set('n', '<M-j>', ':horizontal resize -5<CR>', { desc = 'Extend window vertically', noremap = true, silent = true })
-vim.keymap.set('n', '<M-k>', ':horizontal resize +5<CR>', { desc = 'Shrink window vertically', noremap = true, silent = true })
+vim.keymap.set('n', '<M-h>', ':vertical resize +10<CR>',
+  { desc = 'Extend window horizontally', noremap = true, silent = true })
+vim.keymap.set('n', '<M-l>', ':vertical resize -10<CR>',
+  { desc = 'Shrink window horizontally', noremap = true, silent = true })
+vim.keymap.set('n', '<M-j>', ':horizontal resize -5<CR>',
+  { desc = 'Extend window vertically', noremap = true, silent = true })
+vim.keymap.set('n', '<M-k>', ':horizontal resize +5<CR>',
+  { desc = 'Shrink window vertically', noremap = true, silent = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -187,7 +191,7 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -233,7 +237,7 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+        { '<leader>c', group = '[C]ode',     mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
@@ -273,7 +277,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -369,7 +373,7 @@ require('lazy').setup({
       },
     },
   },
-  { 'Bilal2453/luvit-meta', lazy = true },
+  { 'Bilal2453/luvit-meta',     lazy = true },
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
@@ -383,7 +387,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
@@ -537,8 +541,6 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         clangd = {},
-        zls = {},
-        gopls = {},
         pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -547,9 +549,6 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        ts_ls = {},
-        volar = {},
-        --
 
         lua_ls = {
           -- cmd = { ... },
@@ -586,7 +585,6 @@ require('lazy').setup({
         'clang-format',
         'black',
         'isort',
-        'prettier',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
